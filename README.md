@@ -23,7 +23,7 @@ Visual Studio Code
 We use github for version control (https://github.com/your/project/tags).
 
 # In development
-The path to the initial database was not working, but all other desired features have been implemented. Pictures could be resized so that they fit in the alloted screen. Mobile functionality has not been tested.
+Pictures could be resized so that they fit in the alloted screen. Mobile functionality has not been tested.
 
 # Author
 Aaron Miller
