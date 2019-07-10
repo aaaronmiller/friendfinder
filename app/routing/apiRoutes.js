@@ -20,6 +20,22 @@ var friends = [
       name: "Medium Matt",
       photo: "https://pbs.twimg.com/profile_images/639214960049000449/lNCRC-ub.jpg",
       scores: [
+        "3",
+        "3",
+        "3",
+        "3",
+        "3",
+        "3",
+        "3",
+        "3",
+        "3",
+        "3"
+        ]
+    },
+    {
+      name: "Frankie Fives",
+      photo: "https://pbs.twimg.com/profile_images/639214960049000449/lNCRC-ub.jpg",
+      scores: [
         "5",
         "5",
         "5",
@@ -32,22 +48,6 @@ var friends = [
         "5"
         ]
     },
-    {
-      name: "Tabitha Tens",
-      photo: "https://pbs.twimg.com/profile_images/639214960049000449/lNCRC-ub.jpg",
-      scores: [
-        "10",
-        "10",
-        "10",
-        "10",
-        "10",
-        "10",
-        "10",
-        "10",
-        "10",
-        "10"
-        ]
-    },
   ];
 
 
@@ -58,26 +58,49 @@ module.exports = function(app) {
   res.json(friends);
 });
 
-a = 0;
+
 app.post("/api/friends", function(req, res) {
     console.log(req.body);
     dogboy = req.body;
 friends.push(dogboy);
-console.log(friends[0].scores[0]);
+
 console.log(dogboy.scores[0]);
 
-
-for (i = 0; i <= friends.length; i++) {
-
-console.log(friends[i].scores[0]);
-  
-     // a =(friends[i].scores[0]-dogboy.scores[0]);
-if (a < 0) {
-    a = (a * -1);
-;
-console.log(a);
+closestVal = 100;
+closestId = 0;
+dog();
+function dog() {
+    
+    for (i = 0; i < friends.length-1; i++) {
+        val = 0;
+        cat(i);
+    }
+    
+    var nname = friends[closestId].name
+    console.log("closest person is :" + nname);
+    console.log("variance is :" + closestVal);
+    return;
 }
+function cat() {
 
+    for (q =0; q <10; q++ ) {
+        var bobo = friends[i].scores[q];
+        var dingo = dogboy.scores[q];
+        console.log("testing value of me" + bobo);
+        a1 = bobo - dingo;
+        if (a1 < 0) {
+            a1 = a1 * (-1);
+        }
+        val = val + a1;
+        
+    }
+    if  (val < closestVal) {
+        closestVal = val
+        closestId = i;
+    console.log("new winner!");
+    };
+    console.log("total variance is :" + val);
+    return;
 }
 
 
@@ -85,7 +108,7 @@ dog = friends[0];
 return dog;
 
 // TODO: post request
-   
+
 });
 
 
