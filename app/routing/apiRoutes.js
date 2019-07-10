@@ -2,7 +2,7 @@
 var friends = [
     {
       name: "Negative Nancy",
-      photo: "https://pbs.twimg.com/profile_images/639214960049000449/lNCRC-ub.jpg",
+      photo: "https://bigmemes.funnyjunk.com/pictures/Jack_8c7561_6291941.jpg",
       scores: [
         "1",
         "1",
@@ -34,7 +34,7 @@ var friends = [
     },
     {
       name: "Frankie Fives",
-      photo: "https://pbs.twimg.com/profile_images/639214960049000449/lNCRC-ub.jpg",
+      photo: "https://img00.deviantart.net/1ac7/i/2015/106/7/f/_selfie_by_fuckwhatislife-d7qr3ty.jpg",
       scores: [
         "5",
         "5",
@@ -52,6 +52,8 @@ var friends = [
 
 
 module.exports = function(app) {
+
+
   app.get("/api/friends", function(req, res) {
   console.log(friends);
 // TODO: get request
@@ -59,12 +61,11 @@ module.exports = function(app) {
 });
 
 
+
 app.post("/api/friends", function(req, res) {
     console.log(req.body);
     dogboy = req.body;
 friends.push(dogboy);
-
-console.log(dogboy.scores[0]);
 
 closestVal = 100;
 closestId = 0;
@@ -104,8 +105,9 @@ function cat() {
 }
 
 
-dog = friends[0];
-return dog;
+dog = friends[closestId];
+console.log(dog);
+res.json(dog);
 
 // TODO: post request
 
